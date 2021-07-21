@@ -1,0 +1,25 @@
+<div class="container">
+    <p></p>
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input [(ngModel)]="newProduit.nom" placeholder="Nom" type="text" name="nom" id="nom" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="quantite">Quantite</label>
+                            <input [(ngModel)]="newProduit.quantite" placeholder="Quantite" type="number" name="quantite" id="Quantite" class="form-control">
+                        </div>
+
+
+                        <button class="btn btn-sm btn-primary" (click)="addProduit()">Ajouter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

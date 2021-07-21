@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="card">
+       
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <button class="btn btn-sm btn-success">Show products</button>
+                </div>
+                
+                  
+                
+            </div>
+            <h4 class="card-title">Liste de Produits</h4>
+            <div class="row">
+                <table class="table table-hover" >
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Quantite</th>
+                            <th scope="col">disponble</th>
+                            <th scope="col">date de creation</th>
+                            <th scope="col">date de modification</th>
+
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr  *ngFor="let p of produits">
+                            <th scope="row">{{p.id_pr}}</th>
+                            <td>{{p.nom}}</td>
+                            <td>{{p.quantite}}</td>
+                            <td>{{p.disponble}}</td>
+                            <td>{{p.date_creation}}</td>
+                            <td>{{p.date_modif}}</td>
+
+                            <td>
+                                <a class="btn btn-success"[routerLink]="['/updateProduit', p.id_pr]">Edite</a>
+                              </td>
+                              <td>
+                                <a class="btn btn-danger" (click)="supprimerProduit(p)">delete</a>
+                              </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+               
+            </div>
+        </div>
+    </div>
+    <br />
+  <h3 style="text-align: center">Choose Export Format</h3>
+  <br />
+  
+  <div class="row">
+      <div class="col-12">
+          <div style="display: flex">
+              <button  class="btn btn-primary"(click)="exportPdfProducts()"> Export  Pdf </button>
+              <button  class="btn btn-primary"(click)="exportExcelProducts()">Export Excel</button>
+          </div>
+       
+      
+        </div>
+  </div>
+</div>

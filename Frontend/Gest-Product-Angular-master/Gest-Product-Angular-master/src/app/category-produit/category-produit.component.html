@@ -1,0 +1,49 @@
+<div class="container" style="padding-top: 200px; padding-left: 250px">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Quantity</th>
+                    <th>Disponible</th>
+                    <th>Date Création</th>
+                    <th>Date modification</th>
+                </tr>
+                <tbody *ngFor="let p of produits">
+                    <tr>
+                        <td>{{ p.id_prod }}</td>
+                        <td>{{ p.nom }}</td>
+                        <td>{{ p.quantite }}</td>
+                        <td>{{ p.disponble }}</td>
+                        <td>{{ p.date_creation }}</td>
+                        <td>{{ p.date_modif }}</td>
+
+                        <td><a class="btn btn-success" [routerLink]="['/updateProduit/', p.id]">Edite</a></td>
+                        <td>
+
+
+                            <a class="btn btn-danger" (click)="supprimerProduit(p)">delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary btn-lg btn-block" [routerLink]="['/add-produit']">add product in this category</button>
+        </div>
+    </div>
+</div>
+
+<br />
+<h3 style="text-align: center">Choose Export Format</h3>
+<br />
+
+<div class="row">
+    <div class="col-12">
+        <div style="display: flex">
+            <button class="btn btn-primary" (click)="exportPdfProducts()"> Export  Pdf </button>
+            <button class="btn btn-primary" (click)="exportExcelProducts()">Export Excel</button>
+        </div>
+
+
+    </div>
+</div>

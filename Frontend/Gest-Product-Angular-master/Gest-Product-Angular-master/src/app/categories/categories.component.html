@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <button class="btn btn-sm btn-success">Show Categorys</button>
+                </div>
+                <div class="col-4">
+                    <form>
+                        <div class="form-group">
+                            <label for="keyword">Recherche</label>
+                            <input type="text" placeholder="Tapez votre mot de clet de recherche ici!!" [(ngModel)]="nom" (ngModelChange)="Search()" aria-label="Search" aria-describedby="basic-addon2" name="keyword" id="keyword" class="form-control" />
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <h4 class="card-title">Liste de Categories</h4>
+            <div class="row">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Quantité</th>
+                            <th scope="col">Date de creation</th>
+                            <th scope="col">date dernier modification</th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of categories">
+                            <td scope="row">{{c.id}}</td>
+                            <th>{{c.nom}}</th>
+                            <td>{{c.qt}}</td>
+                            <td>{{c.date_creation}}</td>
+                            <td>{{c.date_modif}}</td>
+                            <td><a class="btn btn-success" [routerLink]="['/categoryproducts', c.id] ">list produits associés</a> </td>
+                            <td><a [routerLink]="['/updateCategory', c.id]" class="btn-info btn">edit</a></td>
+                            <td><a (click)="supprimerCategory(c)" class="btn-danger btn">delete</a></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
